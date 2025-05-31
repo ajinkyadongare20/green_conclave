@@ -39,8 +39,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="<?php bloginfo('template_directory'); ?>/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="<?php bloginfo('template_directory'); ?>/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="<?php bloginfo('template_directory'); ?>/css/bootstrap.min.css" rel="stylesheet">
@@ -54,12 +54,12 @@
 
 <body>
     <!-- Spinner Start -->
-    <!-- <div id="spinner"
+    <div id="spinner"
     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
     <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
       <span class="sr-only">Loading...</span>
     </div>
-  </div> -->
+  </div>
     <!-- Spinner End -->
 
 
@@ -76,10 +76,24 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto">
+
+
+				<?php
+                        wp_nav_menu(array(
+                            'theme_location' => 'menu-1',
+                            'container' => false,
+                            'container_class' => '',
+                            'menu_class' => 'navbar-nav ms-auto',
+                            'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
+                            'depth' => 3,
+                            'walker' => new wp_bootstrap_navwalker()
+                        ));
+                    ?>
+
+
+                    <!-- <div class="navbar-nav ms-auto">
                         <a href="index.html" class="nav-item nav-link text-dark fw-bold active">HOME</a>
                         <a href="about.html" class="nav-item nav-link text-dark fw-bold">ABOUT</a>
-                        <!-- <a href="speakers.html" class="nav-item nav-link text-dark fw-bold">SPEAKERS</a> -->
                         <a href="awards.html" class="nav-item nav-link text-dark fw-bold">AWARDS</a>
                         <a href="sponsors.html" class="nav-item nav-link text-dark fw-bold">SPONSORS</a>
                         <div class="dropdown nav-item">
@@ -101,7 +115,7 @@
 
                         <a href="contact.html" class="nav-item nav-link text-dark fw-bold">CONTACT US</a>
 
-                    </div>
+                    </div> -->
                     <button type="button" class="btn text-dark p-0 d-none d-lg-block" data-bs-toggle="modal"
                         data-bs-target="#searchModal" style="color: #9CBC41;">
                         <i class="fa fa-search"></i>

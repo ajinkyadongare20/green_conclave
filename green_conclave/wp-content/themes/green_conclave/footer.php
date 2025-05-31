@@ -123,6 +123,26 @@
 
 <!-- Template Javascript -->
 <script src="<?php bloginfo('template_directory'); ?>/js/main.js"></script>
+ <script>
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: false,
+            autoplay: false,
+            responsive: {
+                0: {
+                    items: 1  
+                },
+                600: {
+                    items: 1
+                },
+                1000: {
+                    items: 3
+                }
+            }
+        })
+    </script>
+
 <!-- <script>
        
         function updateDateTime() {
@@ -136,7 +156,7 @@
 
         setInterval(updateDateTime, 1000);
         updateDateTime();
-    </script> -->
+</script> -->
 
 
 <?php wp_footer(); ?>
